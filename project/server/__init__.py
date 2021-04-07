@@ -1,5 +1,6 @@
 # project/server/__init__.py
 
+from project.server.auth.views import auth_blueprint
 import os
 
 from flask import Flask
@@ -16,3 +17,5 @@ app.config.from_object(app_settings)
 
 bcrypt = Bcrypt(app)
 db = SQLAlchemy(app)
+
+app.register_blueprint(auth_blueprint)
